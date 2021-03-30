@@ -1,0 +1,36 @@
+<head>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"
+    />
+
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+</head>
+
+<script src="https://unpkg.com/react@16.14.0/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16.14.0/umd/react-dom.development.js"></script>
+
+<h1>Tobit.Software GitHub Repositories:</h1>
+<div id="root"></div>
+
+<script type="text/javascript">
+    fetch('https://api.github.com/orgs/tobitsoftware/repos')
+        .then((response) => response.json())
+        .then((repos) => {
+            let children = [];
+
+            repos.forEach((repo) => {
+                const li = React.createElement(
+                    'li',
+                    { key: repo.id },
+                    repo.name
+                );
+
+                children.push(li);
+            });
+
+            const repoList = React.createElement('ul', null, children);
+
+            ReactDOM.render(repoList, document.querySelector('#root'));
+        });
+</script>

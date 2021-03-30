@@ -1,0 +1,23 @@
+a {
+    text-decoration: none;
+    color: #f17eb8;
+    font-size: 1.2rem;
+}
+
+a:hover {
+    color: #e74694;
+}
+
+a:active {
+    color: #d61f69;
+}
+
+li {
+    list-style-type: none;
+    padding: 0.25rem 0;
+}
+
+ul {
+    padding: 0;
+    margin-top: 2rem;
+}

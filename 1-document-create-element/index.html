@@ -1,0 +1,34 @@
+<head>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"
+    />
+
+    <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+</head>
+
+<h1>Tobit.Software GitHub Repositories:</h1>
+<div id="root"></div>
+
+<script type="text/javascript">
+    fetch('https://api.github.com/orgs/tobitsoftware/repos')
+        .then((response) => response.json())
+        .then((repos) => {
+            let children = [];
+
+            repos.forEach((repo) => {
+                const li = document.createElement('li');
+                li.innerText = repo.name;
+
+                children.push(li);
+            });
+
+            const repoList = document.createElement('ul');
+
+            children.forEach((child) => {
+                repoList.appendChild(child);
+            });
+
+            document.querySelector('#root').appendChild(repoList);
+        });
+</script>
